@@ -63,8 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
  */
 function buildEventCardHtml(data, isClusterMain = false) {
     const isImportant = data.important ? 'important' : '';
-    // isClusterMain이 true일 때만 timeline-point를 생성하도록 수정
-    const pointHtml = isClusterMain || !data.type ? `<div class="timeline-point ${isImportant}"></div>` : '';
+    // isClusterMain이 true이거나 단일 이벤트일 때만 timeline-point를 생성하도록 수정
+    const pointHtml = isClusterMain || data.type === 'event' ? `<div class="timeline-point ${isImportant}"></div>` : '';
     
     return `
         <div class="event-card ${isImportant}" data-year="${data.year}">
@@ -106,7 +106,7 @@ function showModal(data) {
     modalOverlay.innerHTML = `
         <div class="modal-content">
             <span class="modal-close">&times;</span>
-            <img src="${data.image}" alt="${data.title}">
+            <img src="${data.image}" alt="${data.title}" onerror="this.style.display='none'">
             <h2>${data.title}</h2>
             <div class="year">${data.year}년</div>
             <p>${data.description}</p>
