@@ -1,44 +1,24 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>이야기로 만나는 한국 현대사</title>
-
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;600&display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-
-  <link rel="stylesheet" href="style.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이야기로 만나는 한국 현대사</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-  <div id="app-container">
-    <header id="app-header">
-      <h1>이야기로 만나는 한국 현대사 🇰🇷</h1>
-      <p>좌우로 스크롤하며 시대의 흐름을 따라가 보세요!</p>
-      <div class="controls">
-        <button class="nav-btn" id="prevBtn" aria-label="이전으로"><span class="material-icons">chevron_left</span></button>
-        <button class="nav-btn" id="nextBtn" aria-label="다음으로"><span class="material-icons">chevron_right</span></button>
-      </div>
-    </header>
-
-    <!-- 가로 타임라인 -->
-    <main id="timeline-viewport">
-      <div id="timeline-container" class="horizontal snap-x"></div>
-      <div class="axis-line"></div>
-    </main>
-
-    <footer id="app-footer">
-      <small>카드를 클릭하면 ‘요술램프 지니’ 효과로 상세가 열립니다 ✨</small>
-    </footer>
-  </div>
-
-  <!-- 요술램프(고정 장식 & 이펙트 시작점) -->
-  <div id="genie-lamp" aria-hidden="true">🪔</div>
-
-  <script src="historicalData.js"></script>
-  <script src="script.js"></script>
+    <div id="app-container">
+        <header id="app-header">
+            <h1>이야기로 만나는 한국 현대사 🇰🇷</h1>
+            <p>스크롤을 내려 역사의 흐름 속 숨겨진 이야기를 만나보세요!</p>
+        </header>
+        <main id="timeline-container"></main>
+    </div>
+    <script src="historicalData.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
