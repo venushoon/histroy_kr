@@ -159,6 +159,7 @@ body {
     border-top: 5px solid var(--main-event-border);
     display: inline-block;
     text-align: left;
+    position: relative;
 }
 
 .event-card:hover {
@@ -332,6 +333,7 @@ body {
     object-fit: cover;
     border-radius: 12px;
     margin-bottom: 20px;
+    background-color: #eee; /* 이미지가 없을 경우를 대비한 배경색 */
 }
 
 .modal-content h2 {
