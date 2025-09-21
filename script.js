@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     timelineData.forEach(item => {
         const itemContainer = document.createElement('div');
         
+        // 1. 데이터 타입에 따라 다른 HTML 구조 생성
         if (item.type === 'era') {
             itemContainer.className = 'era-card';
             itemContainer.textContent = item.title;
@@ -40,23 +41,19 @@ document.addEventListener('DOMContentLoaded', () => {
         timelineContainer.appendChild(itemContainer);
     });
 
-    // 스크롤 애니메이션
+    // 스크롤 애니메이션 (이전과 동일)
     const eventItems = document.querySelectorAll('.event-item');
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
-            } else {
-                // 화면 밖으로 나가면 다시 숨기기 (선택 사항)
-                // entry.target.classList.remove('visible');
             }
         });
-    }, { threshold: 0.3 }); // 아이템의 30%가 보일 때 애니메이션 시작
-
+    }, { threshold: 0.3 });
     eventItems.forEach(item => { observer.observe(item); });
 });
 
-// 단일 이벤트 카드 HTML 문자열 생성 함수
+// 단일 이벤트 카드 HTML 생성 함수
 function buildEventCardHtml(data) {
     const isImportant = data.important ? 'important' : '';
     return `
@@ -68,7 +65,7 @@ function buildEventCardHtml(data) {
     `;
 }
 
-// 관련 이벤트(원인/결과) 카드 HTML 문자열 생성 함수
+// 관련 이벤트(원인/결과) 카드 HTML 생성 함수
 function buildRelatedCardHtml(data) {
     return `
         <div class="related-card event-card ${data.relation}" data-year="${data.year}">
@@ -79,18 +76,13 @@ function buildRelatedCardHtml(data) {
     `;
 }
 
-// 모달(카드 뉴스)을 보여주는 함수
+// 모달(카드 뉴스)을 보여주는 함수 (이전과 동일)
 function showModal(data) {
-    // 기존에 열려있는 모달이 있다면 제거
     const existingModal = document.querySelector('.modal-overlay');
-    if (existingModal) {
-        existingModal.remove();
-    }
+    if (existingModal) { existingModal.remove(); }
 
     const modalOverlay = document.createElement('div');
     modalOverlay.className = 'modal-overlay';
-    
-    // 모달 내부에 카드 뉴스 내용 구성
     modalOverlay.innerHTML = `
         <div class="modal-content">
             <span class="modal-close">&times;</span>
@@ -104,17 +96,7 @@ function showModal(data) {
             </a>
         </div>
     `;
-
     document.body.appendChild(modalOverlay);
-
-    // 모달 닫기 이벤트 리스너 추가
-    modalOverlay.querySelector('.modal-close').addEventListener('click', () => {
-        modalOverlay.remove();
-    });
-    // 오버레이 클릭 시 모달 닫기
-    modalOverlay.addEventListener('click', (e) => {
-        if (e.target === modalOverlay) {
-            modalOverlay.remove();
-        }
-    });
+    modalOverlay.querySelector('.modal-close').addEventListener('click', () => modalOverlay.remove());
+    modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) { modalOverlay.remove(); } });
 }
