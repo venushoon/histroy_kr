@@ -249,10 +249,6 @@ body {
     .event-item, .event-item:nth-child(even) { /* 모든 카드 왼쪽으로 정렬 */
         width: 100%; left: 0; padding-left: 40px; padding-right: 0; text-align: left;
     }
-    /* 화살표 위치 및 방향 조정 */
-    .event-item:nth-child(odd)::after, .event-item:nth-child(even)::after {
-        left: -9px; border-right-color: var(--card-bg-color); border-left-color: transparent;
-    }
     .timeline-point, .event-item:nth-child(even) .timeline-point, .event-item:nth-child(odd) .timeline-point { left: -2px; }
 
     .event-cluster .related-events {
