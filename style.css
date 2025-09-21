@@ -1,18 +1,21 @@
-/* 기본 스타일은 이전과 유사하게 유지 */
+/* 기본 스타일 변수 설정 */
 :root {
     --bg-color: #f0f2f5;
     --timeline-line-color: #d9dfe5;
     --card-bg-color: #ffffff;
     --text-color: #2c3e50;
-    --point-color-normal: #3498db; /* 일반 사건 점 색상 */
-    --point-color-important: #e74c3c; /* 중요 사건 점 색상 */
-    --era-color: #9b59b6; /* 시대 구분 배경 색상 */
-    --cluster-title-color: #34495e; /* 클러스터 제목 색상 */
-    --cause-color: #e67e22; /* 원인 태그/연결선 색상 */
-    --effect-color: #2ecc71; /* 결과 태그/연결선 색상 */
-    --main-event-border: #3498db; /* 메인 이벤트 카드 상단 바 색상 */
+    --light-text-color: #7f8c8d;
+    --point-color-normal: #3498db;
+    --point-color-important: #e74c3c;
+    --era-color: #9b59b6;
+    --cluster-title-color: #34495e;
+    --cause-color: #e67e22;
+    --effect-color: #2ecc71;
+    --main-event-border: #3498db;
+    --action-button-color: #3498db;
 }
 
+/* 기본 페이지 스타일 */
 body {
     font-family: 'IBM Plex Sans KR', sans-serif;
     margin: 0;
@@ -20,24 +23,42 @@ body {
     color: var(--text-color);
     line-height: 1.6;
 }
-#app-container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+#app-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 상단 헤더 스타일 */
 #app-header {
     text-align: center;
     padding: 30px 20px;
-    background: linear-gradient(135deg, #6dd5ed, #2193b0); /* 청량한 그라데이션 */
+    background: linear-gradient(135deg, #6dd5ed, #2193b0);
     color: white;
     border-radius: 16px;
     margin-bottom: 50px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
-#app-header h1 { margin: 0; font-size: 2.5em; }
-#app-header p { margin: 10px 0 0; font-size: 1.2em; opacity: 0.9; }
+
+#app-header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+#app-header p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+    opacity: 0.9;
+}
 
 /* 타임라인 컨테이너 및 중앙선 스타일 */
 #timeline-container {
     position: relative;
     padding: 20px 0;
 }
+
 #timeline-container::before {
     content: '';
     position: absolute;
@@ -69,19 +90,32 @@ body {
 /* 이벤트 아이템 (단일 사건 또는 클러스터) 공통 스타일 */
 .event-item {
     position: relative;
-    margin: 50px 0; /* 각 이벤트 간 간격 */
+    margin: 50px 0;
     width: 50%;
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
-.event-item.visible { opacity: 1; transform: translateY(0); } /* 스크롤 시 나타나는 애니메이션 */
+
+.event-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 /* 카드 위치 (좌/우) */
-.event-item:nth-child(odd) { left: 0; padding-right: 50px; text-align: right; }
-.event-item:nth-child(even) { left: 50%; padding-left: 50px; text-align: left;}
+.event-item:nth-child(odd) {
+    left: 0;
+    padding-right: 50px;
+    text-align: right;
+}
 
-/* 타임라인 점(포인트) */
+.event-item:nth-child(even) {
+    left: 50%;
+    padding-left: 50px;
+    text-align: left;
+}
+
+/* 타임라인 위 점(포인트) 스타일 */
 .timeline-point {
     position: absolute;
     top: 20px;
@@ -92,49 +126,85 @@ body {
     border: 4px solid var(--bg-color);
     z-index: 1;
 }
-.event-item:nth-child(odd) .timeline-point { right: -12px; }
-.event-item:nth-child(even) .timeline-point { left: -12px; }
+
+.event-item:nth-child(odd) .timeline-point {
+    right: -12px;
+}
+
+.event-item:nth-child(even) .timeline-point {
+    left: -12px;
+}
+
 .timeline-point.important {
     background-color: var(--point-color-important);
     transform: scale(1.3);
     animation: pulse 2s infinite;
 }
+
+/* 중요 사건 점 애니메이션 */
 @keyframes pulse {
     0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
     70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
     100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
 }
 
-/* --- 단일 사건 카드 스타일 --- */
-.event-card { /* 단일 사건 카드와 클러스터 내 메인 카드 공통 */
+/* 이벤트 카드 공통 스타일 */
+.event-card {
     background-color: var(--card-bg-color);
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 5px solid var(--main-event-border); /* 기본 파란색 상단바 */
+    border-top: 5px solid var(--main-event-border);
+    display: inline-block;
+    text-align: left;
 }
-.event-card:hover { transform: translateY(-5px); box-shadow: 0 12px 35px rgba(0,0,0,0.12); }
-.event-card.important { border-top-color: var(--point-color-important); } /* 중요 사건은 빨간색 상단바 */
 
-.event-card .year { font-size: 1.5em; font-weight: 600; color: var(--point-color-normal); }
-.event-card .title { font-size: 1.2em; margin: 5px 0 0; color: var(--text-color); }
-.event-card.important .year, .event-card.important .title { color: var(--point-color-important); }
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+}
+
+.event-card.important {
+    border-top-color: var(--point-color-important);
+}
+
+.event-card .year {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--point-color-normal);
+}
+
+.event-card .title {
+    font-size: 1.2em;
+    margin: 5px 0 0;
+    color: var(--text-color);
+}
+
+.event-card.important .year,
+.event-card.important .title {
+    color: var(--point-color-important);
+}
 
 
 /* --- 이벤트 클러스터(이야기 묶음) 스타일 --- */
 .event-cluster {
-    padding: 20px 0; /* 클러스터 내부 여백 */
+    padding: 20px 0;
     border-radius: 16px;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.event-item:nth-child(odd).event-cluster { align-items: flex-end; }
-.event-item:nth-child(even).event-cluster { align-items: flex-start; }
 
+.event-item:nth-child(odd).event-cluster {
+    align-items: flex-end;
+}
+
+.event-item:nth-child(even).event-cluster {
+    align-items: flex-start;
+}
 
 .event-cluster .cluster-title {
     font-size: 1.3em;
@@ -155,30 +225,27 @@ body {
 
 .event-cluster .related-events {
     display: flex;
-    gap: 15px; /* 관련 카드 간격 */
+    gap: 15px;
     margin-top: 20px;
     position: relative;
     z-index: 2;
-    flex-wrap: wrap; /* 작은 화면에서 줄바꿈 */
+    flex-wrap: wrap;
     justify-content: center;
 }
-.event-item:nth-child(odd) .related-events { justify-content: flex-end; } /* 우측 정렬 */
-.event-item:nth-child(even) .related-events { justify-content: flex-start; } /* 좌측 정렬 */
 
+.event-item:nth-child(odd) .related-events {
+    justify-content: flex-end;
+}
+
+.event-item:nth-child(even) .related-events {
+    justify-content: flex-start;
+}
 
 .related-card {
-    width: 150px; /* 작은 카드 크기 */
+    width: 150px;
     font-size: 0.95em;
     padding: 15px;
-    background-color: var(--card-bg-color);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-    border-top: 4px solid;
-    text-align: left; /* 관련 카드 내용은 왼쪽 정렬 */
 }
-.related-card:hover { transform: translateY(-3px); }
 
 .related-card .relation-tag {
     font-weight: 600;
@@ -189,17 +256,30 @@ body {
     margin-bottom: 8px;
     display: inline-block;
 }
-.related-card .relation-tag.원인, .related-card .relation-tag.계기 { background-color: var(--cause-color); }
-.related-card .relation-tag.결과 { background-color: var(--effect-color); }
 
-.related-card.원인 { border-top-color: var(--cause-color); }
-.related-card.결과 { border-top-color: var(--effect-color); }
+.related-card .relation-tag.원인,
+.related-card .relation-tag.계기 {
+    background-color: var(--cause-color);
+}
+
+.related-card .relation-tag.결과 {
+    background-color: var(--effect-color);
+}
+
+.related-card.원인, .related-card.계기 {
+    border-top-color: var(--cause-color);
+}
+
+.related-card.결과 {
+    border-top-color: var(--effect-color);
+}
 
 .related-card .title {
     font-weight: 600;
     color: var(--text-color);
     margin: 0;
 }
+
 .related-card .year {
     font-size: 0.8em;
     color: var(--light-text-color);
@@ -208,53 +288,137 @@ body {
 
 /* --- 모달 (카드 뉴스) 스타일 --- */
 .modal-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); display: flex;
-    justify-content: center; align-items: center; z-index: 1000;
-    opacity: 0; animation: fadeIn 0.3s forwards;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    animation: fadeIn 0.3s forwards;
 }
-.modal-content {
-    background: var(--card-bg-color); padding: 30px; border-radius: 16px;
-    width: 90%; max-width: 650px; max-height: 85vh; overflow-y: auto;
-    position: relative; box-shadow: 0 10px 50px rgba(0,0,0,0.2);
-    transform: scale(0.9); animation: zoomIn 0.3s forwards;
-}
-.modal-close {
-    position: absolute; top: 15px; right: 20px; font-size: 2.5em;
-    font-weight: bold; color: #999; cursor: pointer;
-}
-.modal-content img { width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin-bottom: 20px; }
-.modal-content h2 { font-size: 2em; color: var(--text-color); margin-bottom: 10px; }
-.modal-content .year { font-size: 1.1em; color: var(--point-color-normal); font-weight: bold; margin-bottom: 20px; }
-.modal-content p { font-size: 1.1em; line-height: 1.8; margin-bottom: 20px; }
 
-.youtube-button {
-    display: inline-flex; align-items: center; text-decoration: none;
-    background-color: #FF0000; color: white; padding: 12px 20px;
-    border-radius: 8px; font-weight: bold; transition: background-color 0.3s;
+.modal-content {
+    background: var(--card-bg-color);
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 650px;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.2);
+    transform: scale(0.9);
+    animation: zoomIn 0.3s forwards;
 }
-.youtube-button:hover { background-color: #c40000; }
-.youtube-button .material-icons { margin-right: 8px; }
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #999;
+    cursor: pointer;
+}
+
+.modal-content img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.modal-content h2 {
+    font-size: 2em;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.modal-content .year {
+    font-size: 1.1em;
+    color: var(--point-color-normal);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* '자세히 보기' 버튼 스타일 */
+.details-button {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: var(--action-button-color);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.details-button:hover {
+    background-color: #2980b9;
+}
+
+.details-button .material-icons {
+    margin-right: 8px;
+}
 
 /* 모달 애니메이션 */
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes zoomIn { from { transform: scale(0.9); } to { transform: scale(1); } }
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); }
+    to { transform: scale(1); }
+}
 
 /* 모바일 화면 대응 */
 @media (max-width: 768px) {
     #app-header h1 { font-size: 2em; }
     #app-header p { font-size: 1em; }
-    #timeline-container::before { left: 10px; } /* 중앙선 왼쪽으로 이동 */
-
-    .event-item, .event-item:nth-child(even) { /* 모든 카드 왼쪽으로 정렬 */
-        width: 100%; left: 0; padding-left: 40px; padding-right: 0; text-align: left;
+    
+    #timeline-container::before {
+        left: 10px;
     }
-    .timeline-point, .event-item:nth-child(even) .timeline-point, .event-item:nth-child(odd) .timeline-point { left: -2px; }
+
+    .event-item,
+    .event-item:nth-child(even) {
+        width: 100%;
+        left: 0;
+        padding-left: 40px;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .timeline-point,
+    .event-item:nth-child(even) .timeline-point,
+    .event-item:nth-child(odd) .timeline-point {
+        left: -2px;
+    }
 
     .event-cluster .related-events {
-        flex-direction: column; /* 관련 카드 세로로 나열 */
+        flex-direction: column;
         align-items: flex-start;
         gap: 10px;
     }
-    .related-card { width: 100%; margin: 0; }
+    
+    .related-card {
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+    }
 }
