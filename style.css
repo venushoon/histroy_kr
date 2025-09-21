@@ -1,0 +1,219 @@
+/* 기본 스타일 초기화 및 폰트 설정 */
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    background-color: #f0f4f8;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#app {
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+/* --- 홈 화면 스타일 --- */
+.home-container {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.home-container h1 {
+    font-size: 2.5em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.home-container p {
+    font-size: 1.2em;
+    color: #7f8c8d;
+    margin-bottom: 40px;
+}
+
+.choice-buttons button {
+    font-size: 1.5em;
+    font-weight: 700;
+    padding: 20px 40px;
+    margin: 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.history-btn { background-color: #3498db; }
+.modern-btn { background-color: #e74c3c; }
+.choice-buttons button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- 타임라인 화면 스타일 --- */
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 2px solid #ecf0f1;
+}
+
+.back-button {
+    background: #7f8c8d;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.search-container {
+    display: flex;
+}
+
+.search-container input {
+    width: 250px;
+    padding: 10px;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px 0 0 8px;
+    outline: none;
+}
+
+.search-container button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #2980b9;
+    color: white;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+}
+
+.timeline-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    padding: 80px 0;
+}
+
+.timeline {
+    position: relative;
+    width: 2000px; /* 타임라인 전체 길이 */
+    height: 8px;
+    background-color: #bdc3c7;
+    border-radius: 4px;
+}
+
+.event-point {
+    position: absolute;
+    bottom: -16px;
+    width: 40px;
+    height: 40px;
+    background-color: #3498db;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transform: translateX(-50%);
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-point:hover {
+    transform: translateX(-50%) scale(1.2);
+}
+
+.event-point .tooltip {
+    visibility: hidden;
+    width: 160px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -80px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.event-point:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+
+/* --- 모달(상세 설명창) 스타일 --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 2em;
+    font-weight: bold;
+    color: #777;
+    cursor: pointer;
+}
+
+.modal-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.modal-content h2 {
+    font-size: 2em;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.modal-content .event-date {
+    font-size: 1.1em;
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.modal-content p {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
