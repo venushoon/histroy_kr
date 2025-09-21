@@ -18,7 +18,7 @@ const timelineData = [
         title: '대한민국 정부 수립',
         description: "남한의 총선거를 통해 이승만을 초대 대통령으로 하는 대한민국 정부가 공식적으로 세워졌어요. 이로써 우리나라는 자유 민주주의 국가로서 첫발을 내딛게 되었습니다.",
         image: "https://upload.wikimedia.org/wikipedia/commons/1/19/ROK_Government_establishment_ceremony_1948.jpg",
-        encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0066138",
+        encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0015002",
         important: false
     },
     {
@@ -114,7 +114,7 @@ const timelineData = [
         description: "군인 출신이 아닌, 국민이 직접 뽑은 민간인 대통령이 이끄는 정부가 처음으로 들어섰어요. 금융실명제, 역사 바로 세우기 등 많은 개혁을 추진했습니다.",
         image: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Kim_Young-sam_inauguration_ceremony_-_25_February_1993.jpg",
         encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0080723",
-        important: false
+        important: true
     },
     {
         type: 'event',
@@ -140,18 +140,18 @@ const timelineData = [
             {
                 relation: '계기',
                 year: 1998,
-                title: '국민의 정부 출범 (김대중)',
+                title: '국민의 정부 출범',
                 description: "IMF 외환 위기라는 어려운 상황 속에서, 평화적인 정권 교체로 김대중 대통령의 '국민의 정부'가 출범했어요. 햇볕정책을 통해 남북 화해를 적극적으로 추진했습니다.",
                 image: "https://upload.wikimedia.org/wikipedia/commons/0/03/Kim_Dae-jung_takes_the_oath_of_office_on_25_February_1998.jpg",
                 encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0078635"
             },
             {
-                relation: '관련',
+                relation: '결과',
                 year: 2000,
-                title: '6.15 남북 공동 선언',
-                description: "최초의 남북정상회담 결과로 발표된 합의문이에요. 통일 문제의 자주적 해결, 경제 협력 등 남북 관계 발전에 중요한 내용이 담겨 있습니다.",
-                image: "https://upload.wikimedia.org/wikipedia/commons/7/77/2000_Inter-Korean_summit_declaration.jpg",
-                encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0070107"
+                title: '노벨 평화상 수상',
+                description: "남북정상회담을 성공적으로 이끌어 한반도의 긴장을 완화하고 평화에 기여한 공로를 인정받아, 김대중 대통령이 한국인 최초로 노벨 평화상을 수상했어요.",
+                image: "https://upload.wikimedia.org/wikipedia/commons/6/66/Kim_Dae-jung_Nobel_Peace_Prize.jpg",
+                encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0008882"
             }
         ]
     },
@@ -186,7 +186,7 @@ const timelineData = [
         type: 'event',
         year: 2022,
         title: '윤석열 정부 출범',
-        description: "20대 대통령 선거를 통해 윤석열 대통령이 당선되어 새로운 정부가 출범했어요. 2022년 5월 10일에 취임하여 새로운 시대를 열었습니다.",
+        description: "20대 대통령 선거를 통해 윤석열 대통령이 당선되어 새로운 정부가 출범했어요. 공정과 상식을 바탕으로 나라를 이끌어가겠다고 약속했습니다.",
         image: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Inauguration_ceremony_of_President_Yoon_Suk-yeol_20.jpg",
         encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0056565",
         important: false
