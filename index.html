@@ -18,7 +18,22 @@
             <p>스크롤을 내려 역사의 흐름 속 숨겨진 이야기를 만나보세요!</p>
         </header>
         <main id="timeline-container"></main>
+
+        <div id="modal-overlay" class="modal-overlay">
+            <div class="modal-content">
+                <span id="modal-close" class="modal-close">&times;</span>
+                <img id="modal-image" src="" alt="Event image" onerror="this.style.display='none'">
+                <h2 id="modal-title"></h2>
+                <div id="modal-year" class="year"></div>
+                <p id="modal-description"></p>
+                <a id="modal-link" href="#" class="details-button" target="_blank">
+                    <span class="material-icons">menu_book</span>
+                    백과사전에서 자세히 보기
+                </a>
+            </div>
+        </div>
     </div>
+    
     <script src="historicalData.js"></script>
     <script src="script.js"></script>
 </body>
