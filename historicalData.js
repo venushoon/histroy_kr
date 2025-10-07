@@ -167,4 +167,131 @@ const timelineData = [
             {
                 relation: '결과',
                 year: 1987,
-                title: '대통령 직선제 개
+                title: '대통령 직선제 개헌',
+                description: "6월 민주 항쟁의 결과로, 국민이 직접 5년 임기의 대통령을 한 번만 뽑는 지금의 헌법으로 바뀌었어요. 우리나라 민주주의 역사의 중요한 전환점이 되었답니다.",
+                image: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Republic_of_Korea_Constitution_1987.jpg",
+                encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0075869"
+            }
+        ]
+    },
+    {
+        type: 'era',
+        title: '민주화 이후의 발전 (1988~현재)'
+    },
+    {
+        type: 'event',
+        year: 1988,
+        title: '서울 올림픽 개최',
+        description: "우리나라의 발전된 모습을 전 세계에 알린 성공적인 올림픽이었어요. '손에 손잡고'라는 주제가처럼 동서양의 화합을 이끌어내며 세계 평화에 기여했습니다.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Seoul_Olympics_Opening_Ceremony.jpg",
+        encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0028046",
+        important: false
+    },
+    {
+        type: 'event',
+        year: 1993,
+        title: '김영삼 문민정부 출범',
+        description: "군인 출신이 아닌, 국민이 직접 뽑은 민간인 대통령이 이끄는 정부가 처음으로 들어섰어요. 금융실명제, 역사 바로 세우기 등 많은 개혁을 추진했습니다.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Kim_Young-sam_inauguration_ceremony_-_25_February_1993.jpg",
+        encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0080723",
+        important: true
+    },
+    {
+        type: 'event',
+        year: 1997,
+        title: 'IMF 외환위기',
+        description: "우리나라에 달러(외국 돈)가 부족해져 국제통화기금(IMF)에 구제금융을 요청한 경제 위기 상황이에요. 많은 기업이 문을 닫고, 어려운 시기를 겪었지만 '금 모으기 운동' 등으로 극복해냈습니다.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/e/ef/Seoul_SK-building_1998.jpg",
+        encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0068313",
+        important: false
+    },
+    {
+        type: 'eventCluster',
+        clusterTitle: '김대중 정부와 남북 화해의 시대',
+        mainEvent: {
+            year: 2000,
+            title: '최초의 남북정상회담',
+            description: "김대중 대통령이 북한 평양을 방문하여 김정일 국방위원장과 만나 분단 이후 처음으로 남북 정상이 손을 맞잡은 역사적인 사건이에요. 이 회담으로 6.15 남북 공동 선언이 발표되었어요.",
+            image: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Kim_Dae-jung_and_Kim_Jong-il_shaking_hands_at_the_first_inter-Korean_summit.jpg",
+            encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0070317",
+            important: true
+        },
+        relatedEvents: [
+            {
+                relation: '결과',
+                year: 2000,
+                title: '노벨 평화상 수상',
+                description: "남북정상회담을 성공적으로 이끌어 한반도의 긴장을 완화하고 평화에 기여한 공로를 인정받아, 김대중 대통령이 한국인 최초로 노벨 평화상을 수상했어요.",
+                image: "https://upload.wikimedia.org/wikipedia/commons/6/66/Kim_Dae-jung_Nobel_Peace_Prize.jpg",
+                encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0008882"
+            }
+        ]
+    },
+    {
+        type: 'event',
+        year: 2002,
+        title: '한일 월드컵 개최',
+        description: "우리나라와 일본이 함께 개최한 세계적인 축구 축제예요. '대~한민국!'을 외치던 붉은악마의 응원과 4강 신화는 모든 국민에게 큰 감동과 자신감을 주었습니다.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/a/a8/2002_FIFA_World_Cup_South_Korea_national_football_team.jpg",
+        encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0068367",
+        important: false
+    },
+    {
+        type: 'event',
+        year: 2003,
+        title: '노무현 참여정부 출범',
+        description: "국민과의 소통을 중요하게 생각했던 노무현 대통령의 '참여정부'가 출범했어요. 권위주의를 없애고, 국민들이 정치에 직접 참여하는 문화를 만들기 위해 노력했습니다.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/0/07/President_Roh_Moo-hyun_inauguration.jpg",
+        encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0080713",
+        important: false
+    },
+    {
+        type: 'event',
+        year: 2008,
+        title: '이명박 정부 출범',
+        description: "CEO 출신 대통령으로 '실용주의'를 내세웠어요. 4대강 정비 사업, G20 정상회의 유치 등을 통해 대한민국의 국제적 위상을 높이고 경제 성장을 위해 노력했습니다.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Lee_Myung-bak_2012.jpg/1024px-Lee_Myung-bak_2012.jpg",
+        encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0049213",
+        important: false
+    },
+    {
+        type: 'event',
+        year: 2017,
+        title: '박근혜 대통령 탄핵',
+        description: "국민이 맡긴 대통령의 권한을 잘못 사용한 책임을 물어, 헌법재판소의 결정으로 박근혜 대통령이 임기 중에 물러나게 된 사건이에요. 촛불집회를 통해 보여준 국민의 힘으로 민주주의를 지켜냈습니다.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/d/d7/Anti-Park_Geun-hye_protest_on_2016-11-26_11.jpg",
+        encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0080714",
+        important: true
+    },
+    {
+        type: 'event',
+        year: 2017,
+        title: '문재인 정부 출범',
+        description: "촛불집회 이후 당선된 대통령으로, 검찰 개혁, 한반도 평화 프로세스 추진 등 사회 곳곳의 문제를 해결하고 '나라다운 나라'를 만들고자 노력했습니다.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Moon_Jae-in_in_September_2017.jpg/1024px-Moon_Jae-in_in_September_2017.jpg",
+        encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0078835",
+        important: false
+    },
+    {
+        type: 'event',
+        year: 2022,
+        title: '윤석열 정부 출범',
+        description: "20대 대통령 선거를 통해 윤석열 대통령이 당선되어 새로운 정부가 출범했어요. 공정과 상식을 바탕으로 나라를 이끌어가겠다고 약속했습니다.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Inauguration_ceremony_of_President_Yoon_Suk-yeol_20.jpg",
+        encyclopediaUrl: "https://encykorea.aks.ac.kr/Article/E0056565",
+        important: false
+    },
+    {
+        type: 'era',
+        title: '미래를 향한 대한민국의 도전 (~2025)'
+    },
+    {
+        type: 'event',
+        year: '현재',
+        title: '세계 속의 대한민국',
+        description: "우리는 수많은 역경을 이겨내고 눈부신 발전을 이루었어요. 이제 대한민국은 K-POP, 영화 등 대중문화를 비롯한 다양한 분야에서 세계를 이끌고 있습니다. 2025년을 향해, 우리는 어떤 미래를 만들어갈까요?",
+        image: "https://images.unsplash.com/photo-1628126933539-a88deb8e06f1?q=80&w=2532&auto=format&fit=crop",
+        encyclopediaUrl: "https://www.kocis.go.kr/koreanet/index.do",
+        important: false
+    }
+];
