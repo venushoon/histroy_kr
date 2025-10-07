@@ -288,6 +288,8 @@ body {
 }
 
 /* --- 모달 (카드 뉴스) 스타일 --- */
+
+/* 기본 상태: 투명하고 클릭할 수 없게 만듭니다. */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -299,8 +301,17 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 1000;
+
+    /* ▼▼▼ 이 부분이 핵심입니다! 평소에는 숨겨주는 역할 ▼▼▼ */
     opacity: 0;
-    animation: fadeIn 0.3s forwards;
+    pointer-events: none; 
+    transition: opacity 0.3s ease;
+}
+
+/* JavaScript에 의해 visible 클래스가 추가되면 보이게 만듭니다. */
+.modal-overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .modal-content {
@@ -314,7 +325,12 @@ body {
     position: relative;
     box-shadow: 0 10px 50px rgba(0,0,0,0.2);
     transform: scale(0.9);
-    animation: zoomIn 0.3s forwards;
+    transition: transform 0.3s ease;
+}
+
+/* visible 상태일 때 컨텐츠에 약간의 확대 애니메이션을 줍니다. */
+.modal-overlay.visible .modal-content {
+    transform: scale(1);
 }
 
 .modal-close {
@@ -353,6 +369,27 @@ body {
     font-size: 1.1em;
     line-height: 1.8;
     margin-bottom: 20px;
+}
+
+.details-button {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: var(--action-button-color);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.details-button:hover {
+    background-color: #2980b9;
+}
+
+.details-button .material-icons {
+    margin-right: 8px;
 }
 
 /* '자세히 보기' 버튼 스타일 */
